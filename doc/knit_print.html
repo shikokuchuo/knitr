@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en-US">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="generator" content="litedown 0.11.7">
+<meta name="generator" content="litedown 0.11.22">
 <title>Custom Print Methods</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.14.107/css/default.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.14.107/css/prism-xcode.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.14.136/css/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.14.136/css/prism-xcode.min.css">
 </head>
 <body>
-<div class="frontmatter">
+<header class="frontmatter">
 <div class="title"><h1>Custom Print Methods</h1></div>
 <div class="author"><h2>Yihui Xie</h2></div>
-<div class="date"><h3>2026-10-13</h3></div>
-</div>
-<div class="body">
-<div id="TOC">
+<div class="date"><h3>2026-10-30</h3></div>
+</header>
+<main>
+<article class="">
+<nav id="TOC">
 <ul>
 <li><a href="#sec:customize-printing">Customize Printing</a></li>
 <li><a href="#sec:a-low-level-explanation">A Low-level Explanation</a>
@@ -26,7 +27,7 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <p>Before <strong>knitr</strong> v1.6, printing objects in R code chunks basically emulates the
 R console. For example, a data frame is printed like this<sup class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup>:</p>
 <pre><code class="language-r">head(mtcars)
@@ -65,7 +66,7 @@ knit_print  # an S3 generic function
 ##         UseMethod(&quot;knit_print&quot;)
 ##     }
 ## }
-## &lt;bytecode: 0x5625fa7f5940&gt;
+## &lt;bytecode: 0x71c5f3070&gt;
 ## &lt;environment: namespace:knitr&gt;
 </code></pre>
 <pre><code class="language-r">methods(knit_print)
@@ -82,7 +83,7 @@ knit_print  # an S3 generic function
 ##         x
 ##     else normal_print(x)
 ## }
-## &lt;bytecode: 0x5625f7aae718&gt;
+## &lt;bytecode: 0x719fea1c8&gt;
 ## &lt;environment: namespace:knitr&gt;
 </code></pre>
 <pre><code class="language-r">normal_print
@@ -93,7 +94,7 @@ knit_print  # an S3 generic function
 ##         methods::show(x)
 ##     else print(x)
 ## }
-## &lt;bytecode: 0x5625fb456d48&gt;
+## &lt;bytecode: 0x71ec69af0&gt;
 ## &lt;environment: namespace:knitr&gt;
 </code></pre>
 <p>As we can see, <code>knit_print()</code> has a <code>default</code> method, which is basically
@@ -480,7 +481,7 @@ function:</p>
 ## {
 ##     structure(x, class = &quot;knit_asis&quot;, knit_meta = meta, knit_cacheable = cacheable)
 ## }
-## &lt;bytecode: 0x5625fc934460&gt;
+## &lt;bytecode: 0x71fd09620&gt;
 ## &lt;environment: namespace:knitr&gt;
 </code></pre>
 <p>You may put <strong>knitr</strong> in the <code>Suggests</code> field in <code>DESCRIPTION</code>, and use
@@ -500,7 +501,9 @@ them off by <code>comment = ''</code>. <a href="#fnref-2" class="footnote-backre
 </li>
 </ol>
 </section>
-</div>
+
+</article>
+</main>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
 </body>
